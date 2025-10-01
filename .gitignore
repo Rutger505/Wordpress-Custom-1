@@ -28,6 +28,7 @@ wp-config.php
 # Example plugin
 /wp-content/plugins/hello.php
 /wp-content/plugins/akismet
+/wp-content/plugins/jetpack
 
 # Uploads
 /wp-content/uploads/
@@ -47,5 +48,4 @@ wp-config.php
 # All themes
 #
 # Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# uncomment the ne!/wp-content/plugins/jetpack/
