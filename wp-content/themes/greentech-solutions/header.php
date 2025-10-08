@@ -38,30 +38,27 @@
     <!-- Links -->
     <section>
         <ul class="links">
-            <li>
-                <a href="#">
-                    <h3>Lorem ipsum</h3>
-                    <p>Feugiat tempus veroeros dolor</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <h3>Dolor sit amet</h3>
-                    <p>Sed vitae justo condimentum</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <h3>Feugiat veroeros</h3>
-                    <p>Phasellus sed ultricies mi congue</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <h3>Etiam sed consequat</h3>
-                    <p>Porta lectus amet ultricies</p>
-                </a>
-            </li>
+			<?php
+			// Query for recent posts in side menu
+			$menu_posts = new WP_Query( array(
+				'posts_per_page' => 4,
+				'post_status'    => 'publish',
+			) );
+
+			if ( $menu_posts->have_posts() ) :
+				while ( $menu_posts->have_posts() ) : $menu_posts->the_post();
+					?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>">
+                            <h3><?php the_title(); ?></h3>
+                            <p><?php echo wp_trim_words( get_the_excerpt(), 10 ); ?></p>
+                        </a>
+                    </li>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
         </ul>
     </section>
 
