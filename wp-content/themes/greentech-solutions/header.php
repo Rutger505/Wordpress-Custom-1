@@ -1,10 +1,6 @@
-<header class="flex gap-5 divide-solid">
-    <div class="logo">
-
-        <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="logo">
-        </a></div>
-    <nav class="flex gap-5 divide-x-3 divide-indigo-500 divide-solid">
+<header id="header">
+    <a href="index.html"><img src="images/logo.svg" alt="" class="logo"/></a>
+    <nav class="links">
         <ul>
             <li><a href="#">Lorem</a></li>
             <li><a href="#">Ipsum</a></li>
@@ -13,5 +9,17 @@
             <li><a href="#">Adipiscing</a></li>
         </ul>
     </nav>
+    <nav class="main">
+        <ul>
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search"/>
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
 </header>
-
