@@ -66,6 +66,44 @@
     <!-- Main -->
     <div id="main">
 
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <!-- Post -->
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2><?php the_title(); ?></h2>
+                        <p><?php echo get_the_excerpt(); ?></p>
+                    </div>
+                    <div class="meta">
+                        <time class="published"
+                              datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
+                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
+                           class="author">
+                            <span class="name"><?php the_author(); ?></span>
+							<?php echo get_avatar( get_the_author_meta( 'ID' ), 48 ); ?>
+                        </a>
+                    </div>
+                </header>
+				<?php if ( has_post_thumbnail() ) : ?>
+                    <span class="image featured"><?php the_post_thumbnail( 'large' ); ?></span>
+				<?php endif; ?>
+				<?php the_content(); ?>
+                <footer>
+                    <ul class="stats">
+                        <li><a href="#"><?php $category = get_the_category();
+								if ( ! empty( $category ) ) {
+									echo esc_html( $category[0]->name );
+								} ?></a></li>
+                        <li><a href="<?php the_permalink(); ?>#comments"
+                               class="icon solid fa-heart"><?php comments_number( '0', '1', '%' ); ?></a></li>
+                        <li><a href="<?php the_permalink(); ?>#comments"
+                               class="icon solid fa-comment"><?php comments_number( '0', '1', '%' ); ?></a></li>
+                    </ul>
+                </footer>
+            </article>
+		<?php endwhile; endif; ?>
+
+        <!-- Static Post Below -->
         <!-- Post -->
         <article class="post">
             <header>
