@@ -75,11 +75,13 @@
                 </div>
                 <div class="meta">
                     <time class="published" datetime="2015-11-01">November 1, 2015</time>
-                    <a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg"
-                                                                                      alt=""/></a>
+                    <a href="#" class="author"><span class="name">Jane Doe</span><img
+                                src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/avatar.jpg"
+                                alt=""/></a>
                 </div>
             </header>
-            <span class="image featured"><img src="images/pic01.jpg" alt=""/></span>
+            <span class="image featured"><img
+                        src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/pic01.jpg" alt=""/></span>
             <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod
                 placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non
                 congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus
@@ -126,4 +128,3 @@
 
 </body>
 </html>
-
