@@ -1,5 +1,6 @@
 <header id="header">
-    <a href="index.html"><img src="images/logo.svg" alt="" class="logo"/></a>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img
+                src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.svg" alt="" class="logo"/></a>
     <nav class="links">
         <ul>
             <li><a href="#">Lorem</a></li>
