@@ -17,6 +17,20 @@
     <!-- Main -->
     <div id="main">
 
+		<?php
+		// Set posts per page for homepage
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		$args  = array(
+			'posts_per_page' => 4,
+			'paged'          => $paged,
+		);
+
+		// Use custom query if not search, otherwise use default loop
+		if ( ! is_search() ) {
+			query_posts( $args );
+		}
+		?>
+
 		<?php if ( is_search() ) : ?>
             <header class="page-header">
                 <h1 class="page-title">
