@@ -66,6 +66,78 @@
     <!-- Main -->
     <div id="main">
 
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <!-- Post -->
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <p><?php echo get_the_excerpt(); ?></p>
+                    </div>
+                    <div class="meta">
+                        <time class="published"
+                              datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
+                        <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
+                           class="author">
+                            <span class="name"><?php the_author(); ?></span>
+							<?php echo get_avatar( get_the_author_meta( 'ID' ), 96 ); ?>
+                        </a>
+                    </div>
+                </header>
+				<?php if ( has_post_thumbnail() ) : ?>
+                    <a href="<?php the_permalink(); ?>" class="image featured">
+						<?php the_post_thumbnail( 'large' ); ?>
+                    </a>
+				<?php endif; ?>
+                <p><?php echo wp_trim_words( get_the_excerpt(), 50 ); ?></p>
+                <footer>
+                    <ul class="actions">
+                        <li><a href="<?php the_permalink(); ?>" class="button large">Continue Reading</a></li>
+                    </ul>
+                    <ul class="stats">
+                        <li><a href="#"><?php $category = get_the_category();
+								if ( ! empty( $category ) ) {
+									echo esc_html( $category[0]->name );
+								} ?></a></li>
+                        <li><a href="<?php the_permalink(); ?>#comments"
+                               class="icon solid fa-heart"><?php comments_number( '0', '1', '%' ); ?></a></li>
+                        <li><a href="<?php the_permalink(); ?>#comments"
+                               class="icon solid fa-comment"><?php comments_number( '0', '1', '%' ); ?></a></li>
+                    </ul>
+                </footer>
+            </article>
+		<?php endwhile; ?>
+
+            <!-- Pagination -->
+            <ul class="actions pagination">
+                <li>
+					<?php if ( get_previous_posts_link() ) : ?>
+						<?php previous_posts_link( '<span class="button large previous">Previous Page</span>' ); ?>
+					<?php else : ?>
+                        <a href="" class="disabled button large previous">Previous Page</a>
+					<?php endif; ?>
+                </li>
+                <li>
+					<?php if ( get_next_posts_link() ) : ?>
+						<?php next_posts_link( '<span class="button large next">Next Page</span>' ); ?>
+					<?php else : ?>
+                        <a href="" class="disabled button large next">Next Page</a>
+					<?php endif; ?>
+                </li>
+            </ul>
+
+		<?php else : ?>
+            <article class="post">
+                <header>
+                    <div class="title">
+                        <h2>No Posts Found</h2>
+                    </div>
+                </header>
+                <p>Sorry, no posts were found. Please check back later.</p>
+            </article>
+		<?php endif; ?>
+
+        <!-- Static Posts Below (keeping your original examples) -->
         <!-- Post -->
         <article class="post">
             <header>
