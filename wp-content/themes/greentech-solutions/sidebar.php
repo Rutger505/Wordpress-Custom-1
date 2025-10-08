@@ -109,6 +109,37 @@
     <!-- Posts List -->
     <section>
         <ul class="posts">
+			<?php
+			// Query for recent posts in list format
+			$list_posts = new WP_Query( array(
+				'posts_per_page' => 5,
+				'post_status'    => 'publish',
+			) );
+
+			if ( $list_posts->have_posts() ) :
+				while ( $list_posts->have_posts() ) : $list_posts->the_post();
+					?>
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                <time class="published"
+                                      datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
+                            </header>
+							<?php if ( has_post_thumbnail() ) : ?>
+                                <a href="<?php the_permalink(); ?>" class="image">
+									<?php the_post_thumbnail( array( 51, 51 ), array( 'class' => 'image' ) ); ?>
+                                </a>
+							<?php endif; ?>
+                        </article>
+                    </li>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
+
+            <!-- Static Posts Below -->
             <li>
                 <article>
                     <header>
