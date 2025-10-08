@@ -4,7 +4,7 @@
     <title>GreenTech Solutions</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="assets/sass/main.css"/>
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/sass/main.css"/>
 	<?php wp_head(); ?>
 </head>
 <body class="is-preload">
@@ -621,3 +621,4 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 </body>
 </html>
+
