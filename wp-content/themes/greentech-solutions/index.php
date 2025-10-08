@@ -613,12 +613,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 </div>
 
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/jquery.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/browser.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/breakpoints.min.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/util.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/main.js"></script>
 
 </body>
 </html>
-
