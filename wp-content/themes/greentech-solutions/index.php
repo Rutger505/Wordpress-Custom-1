@@ -17,6 +17,16 @@
     <!-- Main -->
     <div id="main">
 
+		<?php if ( is_search() ) : ?>
+            <header class="page-header">
+                <h1 class="page-title">
+					<?php
+					printf( esc_html__( 'Search Results for: %s', 'greentech-solutions' ), '<span>' . get_search_query() . '</span>' );
+					?>
+                </h1>
+            </header>
+		<?php endif; ?>
+
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <!-- Post -->
             <article class="post">

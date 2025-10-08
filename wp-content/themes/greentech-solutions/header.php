@@ -14,8 +14,8 @@
         <ul>
             <li class="search">
                 <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="#">
-                    <input type="text" name="query" placeholder="Search"/>
+                <form id="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <input type="text" name="s" placeholder="Search" value="<?php echo get_search_query(); ?>"/>
                 </form>
             </li>
             <li class="menu">
@@ -30,8 +30,8 @@
 
     <!-- Search -->
     <section>
-        <form class="search" method="get" action="#">
-            <input type="text" name="query" placeholder="Search"/>
+        <form class="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <input type="text" name="s" placeholder="Search" value="<?php echo get_search_query(); ?>"/>
         </form>
     </section>
 
