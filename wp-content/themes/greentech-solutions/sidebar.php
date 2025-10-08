@@ -13,6 +13,40 @@
     <section>
         <div class="mini-posts">
 
+			<?php
+			// Query for recent posts
+			$recent_posts = new WP_Query( array(
+				'posts_per_page' => 4,
+				'post_status'    => 'publish',
+			) );
+
+			if ( $recent_posts->have_posts() ) :
+				while ( $recent_posts->have_posts() ) : $recent_posts->the_post();
+					?>
+                    <!-- Mini Post -->
+                    <article class="mini-post">
+                        <header>
+                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                            <time class="published"
+                                  datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
+                            <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"
+                               class="author">
+								<?php echo get_avatar( get_the_author_meta( 'ID' ), 48 ); ?>
+                            </a>
+                        </header>
+						<?php if ( has_post_thumbnail() ) : ?>
+                            <a href="<?php the_permalink(); ?>" class="image">
+								<?php the_post_thumbnail( 'thumbnail' ); ?>
+                            </a>
+						<?php endif; ?>
+                    </article>
+				<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
+
+            <!-- Static Mini Posts Below -->
             <!-- Mini Post -->
             <article class="mini-post">
                 <header>
@@ -156,4 +190,3 @@
     </section>
 
 </section>
-
