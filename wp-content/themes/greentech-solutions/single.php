@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/sass/main.css"/>
 	<?php wp_head(); ?>
 </head>
-<body class="single is-preload" <?php body_class(); ?>>
+<body class="single is-preload">
 
 <!-- Wrapper -->
 <div id="wrapper">
@@ -118,12 +118,7 @@
 
 </div>
 
-<!-- Scripts -->
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/jquery.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/browser.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/breakpoints.min.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/util.js"></script>
-<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/js/main.js"></script>
+<?php get_template_part( 'scripts' ); ?>
 
 </body>
 </html>
